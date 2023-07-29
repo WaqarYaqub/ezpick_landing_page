@@ -6,6 +6,8 @@ import Section1 from "src/components/Section1";
 import Section2 from "src/components/Section2";
 import PricingSection from "src/components/PricingSection";
 import UserFormSection from "src/components/UserFormSection";
+import PaymentSection from "src/components/PaymentSection";
+
 import MobileAppSection from "src/components/MobileAppSection";
 import Footer from "src/components/Footer";
 
@@ -19,6 +21,7 @@ const Home = () => {
       <Section2 />
       <PricingSection />
       <UserFormSection />
+      <PaymentSection />
       <MobileAppSection />
       <Footer />
     </>

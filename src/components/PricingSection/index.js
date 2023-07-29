@@ -38,7 +38,7 @@ const Section1 = () => {
           </p>
         </div>
       </div>
-      <div className="mt-[50px] px-[30px] lg:px-[0px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-[26px] mx-auto max-w-screen-sm md:max-w-screen-xl">
+      <div className="hidden md:flex mt-[50px] px-[30px] lg:px-[0px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-[26px] mx-auto max-w-screen-sm md:max-w-screen-xl">
         <div class="w-full h-[573px] md:w-[276px] md:h-[573px] transform -skew-y-[10deg] rounded-[15px] bg-white filter shadow-custom hover:drop-shadow-2xl">
           <button class="absolute -top-[16px] -right-[16px] w-[160px] h-[52px]  md:w-[160px] md:h-[52px] bg-gradient-to-r from-[#2F4D33] to-[#339559] bg-no-repeat bg-padding-box shadow-md rounded-md cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[17px] font-semibold flex items-center justify-center uppercase hover:from-[#339559] hover:to-[#2F4D33]">
             Essentail Plan

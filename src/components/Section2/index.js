@@ -15,8 +15,9 @@ const Section1 = () => {
             Updates
           </p>
           <p className="text-black font-montserrat text-[16px] lg:text-[20px] font-normal leading-30 mb-[40px]">
-            Parents Receive Real-Time Updates On The Status Of Their Child's
-            Pick-Up, Including The Estimated Time Of Arrival.
+            {
+              "Parents Receive Real-Time Updates On The Status Of Their Child's Pick-Up, Including The Estimated Time Of Arrival."
+            }
           </p>
 
           <div className="grid grid-cols-1 gap-4">

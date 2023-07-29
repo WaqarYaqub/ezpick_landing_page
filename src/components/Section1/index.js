@@ -3,7 +3,6 @@ import React from "react";
 const Section1 = () => {
   return (
     <div className="px-[30px] lg:px-[0px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mx-auto max-w-screen-sm md:max-w-screen-xl mb-[50px]">
-      {/* Column 1: Image */}
       <div className="order-2 md:order-1">
         <img
           src="/images/section1.png"
@@ -12,7 +11,6 @@ const Section1 = () => {
         />
       </div>
 
-      {/* Column 2: Content */}
       <div className="order-1 md:order-2 flex flex-col justify-center">
         <p className="font-montserrat text-[14px] lg:text-[16px] text-[#FFB31A] mb-[20px]">
           Eliminates Chaos And Confusion During Student Pick-Up Times
@@ -25,45 +23,26 @@ const Section1 = () => {
           Ensuring That Only Authorized Individuals Can Pick Up The Students
         </p>
 
-        {/* Bullets */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="flex items-center">
-            <span className="text-black font-montserrat text-[18px] font-medium leading-normal">
-              &#8226;
-            </span>
-            <span className="ml-2">Guardian Authentication</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-black font-montserrat text-[18px] font-medium leading-normal">
-              &#8226;
-            </span>
-            <span className="ml-2">Safeguarding Your Children</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-black font-montserrat text-[18px] font-medium leading-normal">
-              &#8226;
-            </span>
-            <span className="ml-2">User-Friendly Interface</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-black font-montserrat text-[18px] font-medium leading-normal">
-              &#8226;
-            </span>
-            <span className="ml-2">Student Enrollment</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-black font-montserrat text-[18px] font-medium leading-normal">
-              &#8226;
-            </span>
-            <span className="ml-2">Reduced Wait Times</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-black font-montserrat text-[18px] font-medium leading-normal">
-              &#8226;
-            </span>
-            <span className="ml-2">Pickup Reminders</span>
-          </div>
-        </div>
+        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4 pl-5 list-disc">
+          <li className="text-black font-montserrat text-[18px] font-medium leading-normal">
+            Guardian Authentication
+          </li>
+          <li className="text-black font-montserrat text-[18px] font-medium leading-normal">
+            Safeguarding Your Children
+          </li>
+          <li className="text-black font-montserrat text-[18px] font-medium leading-normal">
+            User-Friendly Interface
+          </li>
+          <li className="text-black font-montserrat text-[18px] font-medium leading-normal">
+            Student Enrollment
+          </li>
+          <li className="text-black font-montserrat text-[18px] font-medium leading-normal">
+            Reduced Wait Times
+          </li>
+          <li className="text-black font-montserrat text-[18px] font-medium leading-normal">
+            Pickup Reminders
+          </li>
+        </ul>
       </div>
     </div>
   );
