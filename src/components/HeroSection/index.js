@@ -101,7 +101,7 @@ const HeroSection = () => {
         </div>
 
         <div
-          className="mt-[30px] cursor-pointer flex justify-center"
+          className="hidden lg:flex mt-[30px] cursor-pointer flex justify-center"
           onClick={handlePlayFullscreen}
         >
           <video
