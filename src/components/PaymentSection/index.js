@@ -11,7 +11,7 @@ const PaymentMethod = () => {
                 <img src="/icons/edit.svg" />
               </span>
               <p className="text-[16px] md:text-[18px] font-normal leading-tight font-montserrat text-[#000] mb-[30px]">
-                Children's World Health School
+                {"Children's World Health School"}
               </p>
               <p className="text-[16px] md:text-[18px] font-normal leading-tight font-montserrat text-[#000] mb-[30px]">
                 Jhon Higgins
@@ -23,7 +23,7 @@ const PaymentMethod = () => {
                 abc@example.com
               </p>
               <p className="text-[16px] md:text-[18px] font-normal leading-tight font-montserrat text-[#000]">
-                P.O box 123 eleventh St, New York, 00000
+                {"P.O box 123 eleventh St, New York, 00000"}
               </p>
             </div>
             <div className="rounded-[15px] shadow-custom bg-white pt-[25px] px-[30px]">
@@ -37,17 +37,17 @@ const PaymentMethod = () => {
                     School scheduling software
                   </p>
                   <p className="text-[15px] font-normal leading-tight font-montserrat text-[#000]">
-                    Exp: 01-08-2024
+                    {"Exp: 01-08-2024"}
                   </p>
                 </div>
               </div>
               <hr class="border border-[#B1B1B1] mb-[33px]" />
               <div>
                 <p className="text-[20px] font-bold leading-tight font-montserrat text-[#000] mb-[10px]">
-                  Total: $4500.00
+                  {"Total: $4500.00"}
                 </p>
                 <p className="text-[15px] font-normal leading-tight font-montserrat text-[#000]">
-                  Next billing cycle: 01-08-2024
+                  {"Next billing cycle: 01-08-2024"}
                 </p>
               </div>
             </div>
@@ -94,7 +94,7 @@ const PaymentMethod = () => {
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-[50px]">
                 <div>
                   <label className="uppercase font-montserrat text-[#2F4D33] text-[16px] md:text-[18px] font-bold">
-                    Country/region
+                    {"Country/region"}
                   </label>
                   <input
                     type="text"
