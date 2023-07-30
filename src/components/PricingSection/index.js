@@ -8,7 +8,7 @@ const Section1 = () => {
     setNameOnly(event.target.checked);
   };
   return (
-    <div className="pb-[120px] pt-[64px]">
+    <div className="pb-[120px] pt-[64px]" id="pricing-section">
       <div className="pb-[64px] px-[30px]">
         <p className="text-black text-center font-montserrat text-[38px] md:text-[50px] font-bold mb-[40px]">
           Choose the plan that fits your needs.

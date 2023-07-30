@@ -18,6 +18,14 @@ const HeroSection = () => {
     }
   };
 
+  const handleButtonClick = () => {
+    const targetSection = document.getElementById("pricing-section");
+
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="bg-white text-black py-12 md:px-28">
       <div className="container mx-auto max-w-screen-sm md:max-w-screen-xl">
@@ -95,13 +103,16 @@ const HeroSection = () => {
         </div>
 
         <div className="flex justify-center mt-[30px]">
-          <button class="w-[180px] h-[44px] lg:w-[200px] lg:h-[52px] bg-gradient-to-r from-[#FFBD1D] to-[#FCA000] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[16px] font-semibold flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]">
+          <button
+            onClick={handleButtonClick}
+            class="w-[180px] h-[44px] lg:w-[200px] lg:h-[52px] bg-gradient-to-r from-[#FFBD1D] to-[#FCA000] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[16px] font-semibold flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]"
+          >
             GET START TODAY
           </button>
         </div>
 
         <div
-          className="hidden lg:flex mt-[30px] cursor-pointer flex justify-center"
+          className="mt-[30px] cursor-pointer flex justify-center items-center"
           onClick={handlePlayFullscreen}
         >
           <video
