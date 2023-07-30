@@ -15,22 +15,21 @@ const FeatureSection = () => {
           }}
           className="rounded-[15px] bg-white shadow-xl w-full h-[170px] p-[20px]"
         >
-          <div class="flex">
+          <div className="flex">
             <img
-              class="h-[40px] w-[40px] mr-4"
+              className="h-[40px] w-[40px] mr-4"
               src="/images/feature1.svg"
               alt="Image"
             />
             <div>
-              <h2 class="text-[#0D0C22] text-[16px] font-bold">
-                Pickup Zone <br /> Activation
+              <h2 className="text-[#0D0C22] text-[16px] font-bold">
+                {"Real-time Tracking"}
               </h2>
             </div>
           </div>
           <div>
             <p className="text-[#3D3D4E] text-[14px]">
-              Schools designate specific pickup zones equipped with our advanced
-              Ezpick technology
+              {"Allows parents to track the school bus in real time."}
             </p>
           </div>
         </div>
@@ -40,7 +39,25 @@ const FeatureSection = () => {
           }}
           className="rounded-[15px] bg-white shadow-xl w-full h-[170px]  p-[20px]"
         >
-          2
+          <div className="flex">
+            <img
+              className="h-[40px] w-[40px] mr-4"
+              src="/images/feature2.svg"
+              alt="Image"
+            />
+            <div>
+              <h2 className="text-[#0D0C22] text-[16px] font-bold">
+                Pickup/Drop-off <br /> Notifications
+              </h2>
+            </div>
+          </div>
+          <div>
+            <p className="text-[#3D3D4E] text-[14px]">
+              {
+                "Sends notifications when the child is picked up and dropped off at their destination"
+              }
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -48,7 +65,25 @@ const FeatureSection = () => {
           }}
           className="rounded-[15px] bg-white shadow-xl w-full h-[170px]  p-[20px]"
         >
-          3
+          <div className="flex">
+            <img
+              className="h-[40px] w-[40px] mr-4"
+              src="/images/feature3.svg"
+              alt="Image"
+            />
+            <div>
+              <h2 className="text-[#0D0C22] text-[16px] font-bold">
+                {"Route Information"}
+              </h2>
+            </div>
+          </div>
+          <div>
+            <p className="text-[#3D3D4E] text-[14px]">
+              {
+                "Provides detailed information about the bus route, including any changes or delays."
+              }
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -56,7 +91,23 @@ const FeatureSection = () => {
           }}
           className="rounded-[15px] bg-white shadow-xl w-full h-[170px]  p-[20px]"
         >
-          4
+          <div className="flex">
+            <img
+              className="h-[40px] w-[40px] mr-4"
+              src="/images/feature4.svg"
+              alt="Image"
+            />
+            <div>
+              <h2 className="text-[#0D0C22] text-[16px] font-bold">
+                {"Safety Alerts"}
+              </h2>
+            </div>
+          </div>
+          <div>
+            <p className="text-[#3D3D4E] text-[14px]">
+              {"Sends alerts in case of emergencies or safety issues."}
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -64,7 +115,25 @@ const FeatureSection = () => {
           }}
           className="rounded-[15px] bg-white shadow-xl w-full h-[170px]  p-[20px]"
         >
-          5
+          <div className="flex">
+            <img
+              className="h-[40px] w-[40px] mr-4"
+              src="/images/feature5.svg"
+              alt="Image"
+            />
+            <div>
+              <h2 className="text-[#0D0C22] text-[16px] font-bold">
+                {"Driver Details"}
+              </h2>
+            </div>
+          </div>
+          <div>
+            <p className="text-[#3D3D4E] text-[14px]">
+              {
+                "Provides information about the driver, including contact details for emergencies."
+              }
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -72,7 +141,25 @@ const FeatureSection = () => {
           }}
           className="rounded-[15px] bg-white shadow-xl w-full h-[170px]  p-[20px]"
         >
-          6
+          <div className="flex">
+            <img
+              className="h-[40px] w-[40px] mr-4"
+              src="/images/feature6.svg"
+              alt="Image"
+            />
+            <div>
+              <h2 className="text-[#0D0C22] text-[16px] font-bold">
+                {"History"}
+              </h2>
+            </div>
+          </div>
+          <div>
+            <p className="text-[#3D3D4E] text-[14px]">
+              {
+                "Logs the history of rides, including dates, times, & any notes or incidents."
+              }
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -80,7 +167,25 @@ const FeatureSection = () => {
           }}
           className="rounded-[15px] bg-white shadow-xl w-full h-[170px]  p-[20px]"
         >
-          7
+          <div className="flex">
+            <img
+              className="h-[40px] w-[40px] mr-4"
+              src="/images/feature7.svg"
+              alt="Image"
+            />
+            <div>
+              <h2 className="text-[#0D0C22] text-[16px] font-bold">
+                {"Account Management"}
+              </h2>
+            </div>
+          </div>
+          <div>
+            <p className="text-[#3D3D4E] text-[14px]">
+              {
+                "Allows parents to manage their account, including contact details, payment information, & more."
+              }
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -88,7 +193,25 @@ const FeatureSection = () => {
           }}
           className="rounded-[15px] bg-white shadow-xl w-full h-[170px]  p-[20px]"
         >
-          8
+          <div className="flex">
+            <img
+              className="h-[40px] w-[40px] mr-4"
+              src="/images/feature8.svg"
+              alt="Image"
+            />
+            <div>
+              <h2 className="text-[#0D0C22] text-[16px] font-bold">
+                {"Multi-Child Support"}
+              </h2>
+            </div>
+          </div>
+          <div>
+            <p className="text-[#3D3D4E] text-[14px]">
+              {
+                "Supports tracking multiple children in the same app, useful for parents with more than one child using the service."
+              }
+            </p>
+          </div>
         </div>
       </div>
     </div>
