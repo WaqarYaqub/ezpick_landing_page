@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "@trendyol-js/react-carousel";
 
 import Item from "./item";
@@ -11,6 +11,7 @@ const Section1 = ({
   setPlanDuration,
 }) => {
   const [nameOnly, setNameOnly] = useState(false);
+  const [planData, setPlanData] = useState([]);
 
   const handleChangeSwitch = (event) => {
     setNameOnly(event.target.checked);
@@ -21,6 +22,10 @@ const Section1 = ({
   const handleSelect = (id) => {
     setSelectedPlan(id);
   };
+
+  useEffect(() => {
+    if (plans) setPlanData(plans);
+  }, [plans]);
 
   return (
     <div className="pb-[120px] pt-[64px]" id="pricing-section">
@@ -53,8 +58,8 @@ const Section1 = ({
           </p>
         </div>
       </div>
-      <div className="hidden md:flex mt-[50px] px-[30px] lg:px-[0px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-[26px] mx-auto max-w-screen-sm md:max-w-screen-xl">
-        {plans?.map((item, index) => {
+      <div className="mt-[50px] px-[30px] lg:px-[0px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-[26px] mx-auto max-w-screen-sm md:max-w-screen-xl">
+        {planData?.map((item, index) => {
           let selected = item?.id === selectedPlan;
           return (
             <div
@@ -151,27 +156,6 @@ const Section1 = ({
             </div>
           );
         })}
-      </div>
-
-      <div className="md:hidden">
-        <Carousel
-          number={1}
-          slide={1}
-          responsive={true}
-          leftArrow={
-            <span className="absolute top-[300px] left-0">
-              <img src="/icons/leftArrow.svg" />
-            </span>
-          }
-          rightArrow={
-            <span className="absolute top-[300px] right-0">
-              <img src="/icons/rightArrow.svg" />
-            </span>
-          }
-        >
-          <Item />
-          <Item />
-        </Carousel>
       </div>
     </div>
   );

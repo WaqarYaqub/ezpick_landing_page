@@ -13,6 +13,18 @@ const getPlans = async (planDuration) => {
     console.log(e);
   }
 };
+const getCMS = async (lang) => {
+  try {
+    // get all plans
+    const endpoint = BASE_URL + `cms?lang=${lang}`;
+
+    const response = await axios.get(endpoint);
+    return response.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 const createClient = async (data) => {
   try {
     // get all plans
@@ -25,4 +37,4 @@ const createClient = async (data) => {
   }
 };
 
-export { getPlans, createClient };
+export { getPlans, createClient, getCMS };

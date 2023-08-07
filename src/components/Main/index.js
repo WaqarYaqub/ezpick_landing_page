@@ -11,15 +11,38 @@ import UserFormSection from "src/components/UserFormSection";
 import PaymentSection from "src/components/PaymentSection";
 import MobileAppSection from "src/components/MobileAppSection";
 import Footer from "src/components/Footer";
+import ControlledModal from "../Modal";
 
-import { getPlans } from "@/services";
+import { getPlans, getCMS } from "@/services";
 
 const Main = () => {
+  const [selectedLanguage, setSelectedLanguage] = useState("");
   const [plans, setPlans] = useState([]);
   const [planDuration, setPlanDuration] = useState("monthly");
-
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [client, setClient] = useState(null);
+  const [cmsData, setCmsData] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const fetchCMS = async (lang) => {
+    const result = await getCMS(lang);
+    if (result?.success) {
+      setCmsData(result?.cms[0]);
+      console.log(result, "result");
+    }
+  };
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("selectedLanguage");
+    if (storedLanguage) {
+      setSelectedLanguage(storedLanguage);
+    } else {
+      setSelectedLanguage("en");
+    }
+  }, []);
+  useEffect(() => {
+    fetchCMS(selectedLanguage);
+  }, [selectedLanguage]);
 
   const fetchPlans = async () => {
     const result = await getPlans(planDuration);
@@ -30,14 +53,38 @@ const Main = () => {
     fetchPlans();
   }, [planDuration]);
 
-  console.log(selectedPlan, "selectedPlan");
+  useEffect(() => {
+    const targetSection = document.getElementById("user-form-section");
+
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedPlan]);
+  useEffect(() => {
+    const targetSection = document.getElementById("payment-section");
+
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [client]);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <>
-      <Header />
-      <HeroSection />
+    <div dir={selectedLanguage === "ar" ? "rtl" : "ltr"}>
+      <button onClick={openModal}>Open</button>
+      <Header
+        setSelectedLanguage={setSelectedLanguage}
+        selectedLanguage={selectedLanguage}
+      />
+      <HeroSection data={cmsData?.heroSection} lang={selectedLanguage} />
       <FeatureSection />
-      <Section1 />
-      <Section2 />
+      <Section1 data={cmsData?.securitySection} />
+      <Section2 data={cmsData?.realTimeUpdatesSection} />
       <PricingSection
         plans={plans}
         setPlanDuration={setPlanDuration}
@@ -52,11 +99,26 @@ const Main = () => {
           plans={plans}
           selectedPlan={selectedPlan}
           client={client}
+          openModal={openModal}
         />
       )}
-      <MobileAppSection />
+      <MobileAppSection data={cmsData?.mobileAppSection} />
       <Footer />
-    </>
+      <ControlledModal isModalOpen={isModalOpen}>
+        <h2 className="text-xl font-semibold mb-4">Purchase Successfully!</h2>
+        <p>
+          {
+            "You have successfully get into the system.We have sent you an email on this"
+          }
+        </p>
+        <button
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={closeModal}
+        >
+          Close Modal
+        </button>
+      </ControlledModal>
+    </div>
   );
 };
 
