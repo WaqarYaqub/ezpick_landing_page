@@ -73,10 +73,10 @@ const Main = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  console.log(process.env.STRIPE_PUBLIC_KEY,"process.env.STRIPE_PUBLIC_KEY")
 
   return (
     <div dir={selectedLanguage === "ar" ? "rtl" : "ltr"}>
-      <button onClick={openModal}>Open</button>
       <Header
         setSelectedLanguage={setSelectedLanguage}
         selectedLanguage={selectedLanguage}

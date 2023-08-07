@@ -7,9 +7,7 @@ import PaymentForm from "./paymeyGateway";
 const PaymentMethod = ({ client, selectedPlan, plans, openModal }) => {
   const plan = plans?.find((item) => item?.id === selectedPlan);
 
-  const stripePromise = loadStripe(
-    "pk_test_51MAwtwGUDX8FrEXLDpXEbc8z9mmvJe120Jbfh7yA89NLwOY1EmkCA3uIqyJdySiVw6BIvsJPHVGqdSZbMknc9Rti00xsP2rThZ"
-  );
+  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
 
   return (
     <>
