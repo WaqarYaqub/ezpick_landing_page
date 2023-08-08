@@ -16,7 +16,7 @@ import ControlledModal from "../Modal";
 import { getPlans, getCMS } from "@/services";
 
 const Main = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [plans, setPlans] = useState([]);
   const [planDuration, setPlanDuration] = useState("monthly");
   const [selectedPlan, setSelectedPlan] = useState(null);

@@ -28,7 +28,7 @@ const FeatureSection = () => {
             </div>
           </div>
           <div>
-            <p className="text-[#3D3D4E] text-[14px]">
+            <p className="mt-[10px] text-[#3D3D4E] text-[14px]">
               {"Allows parents to track the school bus in real time."}
             </p>
           </div>
@@ -52,7 +52,7 @@ const FeatureSection = () => {
             </div>
           </div>
           <div>
-            <p className="text-[#3D3D4E] text-[14px]">
+            <p className="mt-[10px] text-[#3D3D4E] text-[14px]">
               {
                 "Sends notifications when the child is picked up and dropped off at their destination"
               }
@@ -78,7 +78,7 @@ const FeatureSection = () => {
             </div>
           </div>
           <div>
-            <p className="text-[#3D3D4E] text-[14px]">
+            <p className="mt-[10px] text-[#3D3D4E] text-[14px]">
               {
                 "Provides detailed information about the bus route, including any changes or delays."
               }
@@ -104,7 +104,7 @@ const FeatureSection = () => {
             </div>
           </div>
           <div>
-            <p className="text-[#3D3D4E] text-[14px]">
+            <p className="mt-[10px] text-[#3D3D4E] text-[14px]">
               {"Sends alerts in case of emergencies or safety issues."}
             </p>
           </div>
@@ -128,7 +128,7 @@ const FeatureSection = () => {
             </div>
           </div>
           <div>
-            <p className="text-[#3D3D4E] text-[14px]">
+            <p className="mt-[10px] text-[#3D3D4E] text-[14px]">
               {
                 "Provides information about the driver, including contact details for emergencies."
               }
@@ -154,7 +154,7 @@ const FeatureSection = () => {
             </div>
           </div>
           <div>
-            <p className="text-[#3D3D4E] text-[14px]">
+            <p className="mt-[10px] text-[#3D3D4E] text-[14px]">
               {
                 "Logs the history of rides, including dates, times, & any notes or incidents."
               }
@@ -180,7 +180,7 @@ const FeatureSection = () => {
             </div>
           </div>
           <div>
-            <p className="text-[#3D3D4E] text-[14px]">
+            <p className="mt-[10px] text-[#3D3D4E] text-[14px]">
               {
                 "Allows parents to manage their account, including contact details, payment information, & more."
               }
@@ -206,7 +206,7 @@ const FeatureSection = () => {
             </div>
           </div>
           <div>
-            <p className="text-[#3D3D4E] text-[14px]">
+            <p className="mt-[10px] text-[#3D3D4E] text-[14px]">
               {
                 "Supports tracking multiple children in the same app, useful for parents with more than one child using the service."
               }
