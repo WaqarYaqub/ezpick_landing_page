@@ -7,7 +7,7 @@ import PaymentForm from "./paymeyGateway";
 const PaymentMethod = ({ client, selectedPlan, plans, openModal }) => {
   const plan = plans?.find((item) => item?.id === selectedPlan);
 
-  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
   return (
     <>
@@ -16,9 +16,9 @@ const PaymentMethod = ({ client, selectedPlan, plans, openModal }) => {
           <div className="px-[30px] lg:px-[0px] bg-[#F5F5F5] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[30px]">
             <div className="grid grid-rows-2 gap-[20px]">
               <div className="relative rounded-[15px] shadow-custom bg-white py-[24px] md:py-[30px] px-[20px] md:px-[30px]">
-                <span className="cursor-pointer absolute top-[25px] right-[20px] md:right-[25px]">
+                {/* <span className="cursor-pointer absolute top-[25px] right-[20px] md:right-[25px]">
                   <img src="/icons/edit.svg" />
-                </span>
+                </span> */}
                 <p className="text-[16px] md:text-[18px] font-normal leading-tight font-montserrat text-[#000] mb-[30px]">
                   {client?.schoolName}
                 </p>
@@ -35,7 +35,7 @@ const PaymentMethod = ({ client, selectedPlan, plans, openModal }) => {
                   {client?.address}
                 </p>
               </div>
-              <div className="rounded-[15px] shadow-custom bg-white py-[37px] md:py-[0px] md:pt-[25px] px-[27px] md:px-[30px]">
+              <div className="rounded-[15px] shadow-custom bg-white py-[37px] md:py-[20px] md:pt-[25px] px-[27px] md:px-[30px]">
                 <div className="flex gap-[40px] mb-[30px]">
                   <img src="/icons/ezpickLogo.svg" />
                   <div>
@@ -43,7 +43,7 @@ const PaymentMethod = ({ client, selectedPlan, plans, openModal }) => {
                       EZPICK
                     </p>
                     <p className="text-[15px] font-normal leading-tight font-montserrat text-[#000] mb-[20px]">
-                      School scheduling soft4440000009900010ware
+                      School scheduling software
                     </p>
                     <p className="text-[15px] font-normal leading-tight font-montserrat text-[#000]">
                       {"Exp: 01-08-2024"}

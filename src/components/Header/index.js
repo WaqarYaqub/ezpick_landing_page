@@ -30,8 +30,6 @@ function LanguageSelector({ setSelectedLanguage, selectedLanguage }) {
 
     setSelectedLanguage(newLanguage);
     localStorage.setItem("selectedLanguage", newLanguage);
-
-    // location.reload()
   };
 
   return (

@@ -20,11 +20,11 @@ const MobileAppSection = ({ data }) => {
           single time.
         </p> */}
       </div>
-      {/* <div className="hidden md:flex justify-center gap-[20px]">
-        <img src="/icons/appStore.svg" alt="Logo" />
-        <img src="/icons/googlePlay.svg" alt="Logo" />
+      <div className="flex justify-center gap-[20px] mt-[20px]">
+        <img src="/icons/appStore.svg" alt="Logo" className="w-[140px] h-[70px]" />
+        <img src="/icons/googlePlay.svg" alt="Logo" className="w-[140px] h-[70px]" />
       </div>
-      <div className="flex md:hidden justify-center gap-[17px]">
+      {/* <div className="flex md:hidden justify-center gap-[17px] mt-[20px]">
         <img src="/icons/mblAppStore.svg" alt="Logo" />
         <img src="/icons/mblGooglePlay.svg" alt="Logo" />
       </div> */}

@@ -129,7 +129,7 @@ function PaymentForm({ price, openModal }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-[50px]">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-[50px]">
           <div>
             <label className="uppercase font-montserrat text-[#2F4D33] text-[16px] md:text-[18px] font-bold">
               {"Country/region"}
@@ -153,7 +153,7 @@ function PaymentForm({ price, openModal }) {
               onChange={handleChange}
             />
           </div>
-        </div>
+        </div> */}
         <div className="flex justify-center">
           <button
             className="w-[157px] h-[44.263px] lg:w-[200px] lg:h-[52px] bg-gradient-to-r from-[#FFB31A] to-[#FF8A0F] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-[#EFF0FF] text-[12px] lg:text-[14px] font-semibold flex items-center justify-center uppercase hover:from-[#FF8A0F] hover:to-[#FFB31A]"
@@ -164,7 +164,6 @@ function PaymentForm({ price, openModal }) {
           </button>
         </div>
       </div>
-      <button onClick={openModal}>Open</button>
       {error && <div>{error}</div>}
     </form>
   );

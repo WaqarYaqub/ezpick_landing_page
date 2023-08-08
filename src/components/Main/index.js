@@ -42,6 +42,7 @@ const Main = () => {
   }, []);
   useEffect(() => {
     fetchCMS(selectedLanguage);
+    setCmsData([]);
   }, [selectedLanguage]);
 
   const fetchPlans = async () => {
@@ -72,8 +73,9 @@ const Main = () => {
   };
   const closeModal = () => {
     setIsModalOpen(false);
+    setSelectedPlan(null);
+    setClient(null);
   };
-  console.log(process.env.STRIPE_PUBLIC_KEY,"process.env.STRIPE_PUBLIC_KEY")
 
   return (
     <div dir={selectedLanguage === "ar" ? "rtl" : "ltr"}>
@@ -111,12 +113,14 @@ const Main = () => {
             "You have successfully get into the system.We have sent you an email on this"
           }
         </p>
-        <button
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-          onClick={closeModal}
-        >
-          Close Modal
-        </button>
+        <div className="flex items-center justify-center mt-[20px]">
+          <button
+            className="w-[120px] h-[44.263px] lg:w-[120px] lg:h-[40px] bg-gradient-to-r from-[#FFB31A] to-[#FF8A0F] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-[#EFF0FF] text-[12px] lg:text-[14px] font-semibold flex items-center justify-center uppercase hover:from-[#FF8A0F] hover:to-[#FFB31A]"
+            onClick={closeModal}
+          >
+            Close
+          </button>
+        </div>
       </ControlledModal>
     </div>
   );
