@@ -25,7 +25,7 @@ const HeroSection = ({ data, lang }) => {
       targetSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const index = lang === "ar"? 13 : 14;
+  const index = lang === "ar" ? 13 : 14;
 
   const text1 = data?.heroTitleBold?.substring(0, index).trim();
   const text2 = data?.heroTitleBold?.substring(index).trim();
@@ -39,21 +39,15 @@ const HeroSection = ({ data, lang }) => {
             transition={{ duration: 0.5 }} // Animation duration
             className="mt-4 text-[#000] text-[12px] lg:text-[16px]"
           >
-            {/* Making The End Of The School Day As Easy As A-B-C <br /> With Our
-            Student Pick-Up System */}
             {data?.heroText1}
           </motion.p>
           <p className="text-[#000] text-[30px] lg:text-[56px] font-bold mt-[17px] lg:mt-[15px] m-[0px] p-[0px]">
-            {/* Student School */}
             {text1}
           </p>
           <p className="text-[#000] text-[30px] lg:text-[56px] font-bold m-[0px] p-[0px]">
-            {/* Dismissal Software */}
             {text2}
           </p>
           <p className="mt-[20px] text-[#000] font-normal text-[12px] lg:text-[16px]">
-            {/* Simplify Student Pick-Up And Keep Parents And Teachers Stress-Free
-            With Our Innovative System. */}
             {data?.heroText2}
           </p>
           <motion.div
@@ -114,7 +108,6 @@ const HeroSection = ({ data, lang }) => {
             onClick={handleButtonClick}
             className="w-[180px] h-[44px] lg:w-[200px] lg:h-[52px] bg-gradient-to-r from-[#FFBD1D] to-[#FCA000] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[16px] font-semibold flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]"
           >
-            {/* GET START TODAY */}
             {data?.heroButtonText}
           </button>
         </div>
@@ -128,11 +121,12 @@ const HeroSection = ({ data, lang }) => {
             autoPlay
             controls={false}
             muted={true}
+            loop
             playsInline
+            preload="auto"
           >
             <source
               src="https://ezpick.s3.us-east-1.amazonaws.com/cms%2F1690288885395.mp4"
-              // src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.

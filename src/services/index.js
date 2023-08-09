@@ -37,4 +37,15 @@ const createClient = async (data) => {
   }
 };
 
-export { getPlans, createClient, getCMS };
+const updateClient = async (data) => {
+  try {
+    const endpoint = BASE_URL + `clients/update`;
+
+    const response = await axios.patch(endpoint, data);
+    return response.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export { getPlans, createClient, getCMS, updateClient };

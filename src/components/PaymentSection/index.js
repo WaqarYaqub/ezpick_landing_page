@@ -1,13 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { RotatingLines } from "react-loader-spinner";
 
 import PaymentForm from "./paymeyGateway";
 
-const PaymentMethod = ({ client, selectedPlan, plans, openModal }) => {
+const PaymentMethod = ({
+  client,
+  selectedPlan,
+  plans,
+  openModal,
+  closeModal,
+}) => {
   const plan = plans?.find((item) => item?.id === selectedPlan);
+  const [isLoading, setLoading] = useState(false);
 
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+  console.log(plan, "plan");
+  const getNextYear = () => {
+    const currentDate = new Date();
+
+    const nextYear = currentDate.getFullYear() + 1;
+
+    const nextYearDate = new Date(currentDate);
+    nextYearDate.setFullYear(nextYear);
+
+    const formattedDate = `${String(nextYearDate.getDate()).padStart(
+      2,
+      "0"
+    )}-${String(nextYearDate.getMonth() + 1).padStart(
+      2,
+      "0"
+    )}-${nextYearDate.getFullYear()}`;
+
+    return formattedDate;
+    openModal;
+  };
+  const getNextMonth = () => {
+    const currentDate = new Date();
+    const nextMonth = currentDate.getMonth() + 1;
+
+    const nextMonthDate = new Date(currentDate);
+    nextMonthDate.setMonth(nextMonth);
+
+    const formattedDate = `${String(nextMonthDate.getDate()).padStart(
+      2,
+      "0"
+    )}-${String(nextMonthDate.getMonth() + 1).padStart(
+      2,
+      "0"
+    )}-${nextMonthDate.getFullYear()}`;
+    return formattedDate;
+  };
 
   return (
     <>
@@ -46,7 +90,11 @@ const PaymentMethod = ({ client, selectedPlan, plans, openModal }) => {
                       School scheduling software
                     </p>
                     <p className="text-[15px] font-normal leading-tight font-montserrat text-[#000]">
-                      {"Exp: 01-08-2024"}
+                      {`Exp: ${
+                        plan?.durationType === "yearly"
+                          ? getNextYear()
+                          : getNextMonth()
+                      }`}
                     </p>
                   </div>
                 </div>
@@ -62,19 +110,43 @@ const PaymentMethod = ({ client, selectedPlan, plans, openModal }) => {
               </div>
             </div>
 
-            <div className="relative rounded-[15px] shadow-custom bg-white py-[40px] px-[20px] md:px-[30px]">
+            <div
+              className={`${
+                isLoading && "blury-display "
+              } relative rounded-[15px] shadow-custom bg-white py-[40px] px-[20px] md:px-[30px]`}
+            >
               <span className="cursor-pointer absolute top-[20px] md:top-[10px] right-[10px]">
                 <img
+                  onClick={closeModal}
                   placeholder="CVC"
                   src="/icons/cross.svg"
                   className="w-[29px] h-[29px] md:w-[40px] md:h-[40px]"
                 />
               </span>
-              <h1 className="text-center text-[24px] md:text-[30px] font-semibold leading-tight font-montserrat text-[#111019] pb-[50px]">
+              <h1
+                className={`text-center text-[24px] md:text-[30px] font-semibold leading-tight font-montserrat text-[#111019] pb-[50px]`}
+              >
                 Payment Gateway
               </h1>
+              {isLoading && (
+                <div className="z-10 absolute inset-0 flex items-center justify-center">
+                  <RotatingLines
+                    strokeColor="grey"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="96"
+                    visible={isLoading}
+                  />
+                </div>
+              )}
               <Elements stripe={stripePromise}>
-                <PaymentForm price={plan?.price} openModal={openModal} />
+                <PaymentForm
+                  plan={plan}
+                  client={client}
+                  openModal={openModal}
+                  setLoading={setLoading}
+                  isLoading={isLoading}
+                />
               </Elements>
             </div>
           </div>

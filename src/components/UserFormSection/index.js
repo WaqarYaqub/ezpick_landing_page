@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createClient } from "@/services";
+import { RotatingLines } from "react-loader-spinner";
 
 const UserFormSection = ({ setClient, selectedPlan }) => {
   const [formData, setFormData] = useState({
@@ -23,6 +24,7 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
     zipCode: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -82,12 +84,15 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
       return;
     }
     if (isFormDataValid(formData)) {
+      setLoading(true);
       const data = {
         ...formData,
         planId: selectedPlan,
+        status: 0,
       };
       const result = await createClient(data);
       if (result?.success) {
+        setLoading(false);
         setClient(result?.client);
         setFormData({
           schoolName: "",
@@ -156,7 +161,23 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
           Enter your details
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-4 md:mx-[250px] mx-[0px] bg-white">
+
+      <div
+        className={`${
+          isLoading ? "blury-display" : ""
+        } relative grid grid-cols-1 gap-4 md:mx-[250px] mx-[0px] bg-white`}
+      >
+        {isLoading && (
+          <div className="z-10 absolute inset-0 flex items-center justify-center">
+            <RotatingLines
+              strokeColor="grey"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="96"
+              visible={isLoading}
+            />
+          </div>
+        )}
         <div>
           <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
             School Name
@@ -243,14 +264,14 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
               onChange={handleChange}
             />
             <button
-              className="absolute bottom-2 right-4 transform -translate-y-1/2 focus:outline-none"
+              className="absolute bottom-2 rtl:left-4 ltr:right-4 transform -translate-y-1/2 focus:outline-none"
               onClick={togglePasswordVisibility}
             >
               {showPassword ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 24 RotatingLines24"
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="w-5 h-5"
@@ -287,19 +308,6 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
               {validation?.password}
             </span>
           </div>
-          {/* <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-            PASSWORD
-          </label>
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-              placeholder="Enter your password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-           
-          </div> */}
         </div>
 
         <div>
@@ -357,8 +365,13 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
       </div>
       <div className="flex justify-center mt-[30px]">
         <button
+          disabled={isLoading}
           onClick={handleSubmit}
-          className="w-[157px] h-[44.263px] lg:w-[200px] lg:h-[52px] bg-gradient-to-r from-[#FFBD1D] to-[#FCA000] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[16px] font-semibold flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]"
+          className={`w-[157px] h-[44.263px] lg:w-[200px] lg:h-[52px] ${
+            isLoading
+              ? "bg-gray-500"
+              : "bg-gradient-to-r from-[#FFBD1D] to-[#FCA000]"
+          } bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[16px] font-semibold flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]`}
         >
           Purchase Now
         </button>

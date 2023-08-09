@@ -11,14 +11,14 @@ import UserFormSection from "src/components/UserFormSection";
 import PaymentSection from "src/components/PaymentSection";
 import MobileAppSection from "src/components/MobileAppSection";
 import Footer from "src/components/Footer";
-import ControlledModal from "../Modal";
-
+import Modal from "../Modal";
+import SuccessPage from "../Pages/SuccessPage";
 import { getPlans, getCMS } from "@/services";
 
 const Main = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [plans, setPlans] = useState([]);
-  const [planDuration, setPlanDuration] = useState("monthly");
+  const [planDuration, setPlanDuration] = useState("yearly");
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [client, setClient] = useState(null);
   const [cmsData, setCmsData] = useState([]);
@@ -68,6 +68,7 @@ const Main = () => {
       targetSection.scrollIntoView({ behavior: "smooth" });
     }
   }, [client]);
+  client;
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -84,7 +85,7 @@ const Main = () => {
         selectedLanguage={selectedLanguage}
       />
       <HeroSection data={cmsData?.heroSection} lang={selectedLanguage} />
-      <FeatureSection />
+      <FeatureSection data={cmsData?.cmsFeatures} />
       <Section1 data={cmsData?.securitySection} />
       <Section2 data={cmsData?.realTimeUpdatesSection} />
       <PricingSection
@@ -102,26 +103,14 @@ const Main = () => {
           selectedPlan={selectedPlan}
           client={client}
           openModal={openModal}
+          closeModal={closeModal}
         />
       )}
       <MobileAppSection data={cmsData?.mobileAppSection} />
       <Footer />
-      <ControlledModal isModalOpen={isModalOpen}>
-        <h2 className="text-xl font-semibold mb-4">Purchase Successfully!</h2>
-        <p>
-          {
-            "You have successfully get into the system.We have sent you an email on this"
-          }
-        </p>
-        <div className="flex items-center justify-center mt-[20px]">
-          <button
-            className="w-[120px] h-[44.263px] lg:w-[120px] lg:h-[40px] bg-gradient-to-r from-[#FFB31A] to-[#FF8A0F] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-[#EFF0FF] text-[12px] lg:text-[14px] font-semibold flex items-center justify-center uppercase hover:from-[#FF8A0F] hover:to-[#FFB31A]"
-            onClick={closeModal}
-          >
-            Close
-          </button>
-        </div>
-      </ControlledModal>
+      <Modal isModalOpen={isModalOpen}>
+        <SuccessPage closeModal={closeModal} email={client?.email} />
+      </Modal>
     </div>
   );
 };
