@@ -29,7 +29,10 @@ const Section1 = ({
   return (
     <div className="pb-[120px] pt-[64px]" id="pricing-section">
       <div className="pb-[64px] px-[30px]">
-        <p dir="ltr" className="text-black text-center font-montserrat text-[38px] md:text-[50px] font-bold mb-[40px]">
+        <p
+          dir="ltr"
+          className="text-black text-center font-montserrat text-[38px] md:text-[50px] font-bold mb-[40px]"
+        >
           Choose the plan that fits your needs.
         </p>
         <p className="text-black text-center font-montserrat text-[18px] font-normal mb-[25px]">
@@ -192,11 +195,8 @@ const Section1 = ({
           {planData?.map((item, index) => {
             let selected = item?.id === selectedPlan;
             return (
-              <div className="w-screen px-[40px] py-[100px]">
-                <div
-                  key={index}
-                  className="w-full h-[573px] md:w-[276px] md:h-[573px] transform -skew-y-[10deg] rounded-[15px] bg-white filter shadow-custom hover:drop-shadow-2xl"
-                >
+              <div key={index} className="w-screen px-[40px] py-[100px]">
+                <div className="w-full h-[573px] md:w-[276px] md:h-[573px] transform -skew-y-[10deg] rounded-[15px] bg-white filter shadow-custom hover:drop-shadow-2xl">
                   <button
                     className={`absolute -top-[16px] -right-[16px] w-[160px] h-[52px]  md:w-[${
                       item?.title?.toUpperCase() == "ENTERPRISE PLAN" ||
