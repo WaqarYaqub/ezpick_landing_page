@@ -263,7 +263,7 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
               value={formData.password}
               onChange={handleChange}
             />
-            <span className="px-[10px] absolute top-16 flex items-center justify-end rtl:left-4 ltr:right-8 ">
+            <span className="px-[10px] absolute top-16 flex items-center justify-end rtl:left-4 ltr:right-4">
               <button
                 className="transform -translate-y-1/2 focus:outline-none"
                 onClick={togglePasswordVisibility}
