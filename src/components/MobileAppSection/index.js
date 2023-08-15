@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const MobileAppSection = ({ data }) => {
+const MobileAppSection = ({ data, lg, locales }) => {
   const handlePlayFullscreen = (event) => {
     if (event.target.requestFullscreen) {
       event.target.requestFullscreen();
@@ -21,8 +21,14 @@ const MobileAppSection = ({ data }) => {
     <div className="bg-[#F5F5F5] pt-[80px] pb-[0px] md:pt-[50px] md:pb-[0px]">
       <div className="flex flex-col justify-center items-center px-[30px] lg:px-[0px] mx-auto max-w-screen-sm md:max-w-screen-xl">
         <p className="text-black text-center font-montserrat text-[38px] md:text-[40px] font-bold mb-[20px]">
-          Mobile App for <span className="text-[#FFB31A]">Teachers</span> &
-          <span className="text-[#2F4D33]"> Parents</span>
+          {lg === "en" ? (
+            <span>
+              Mobile App for <span className="text-[#FFB31A]">Teachers</span> &{" "}
+              <span className="text-[#2F4D33]">Parents</span>
+            </span>
+          ) : (
+            locales?.MOBILE_APP_FOR
+          )}
         </p>
         <p className="w-[100%] md:w-[60%] text-black text-center font-montserrat text-[14px] md:text-[15px] font-normal">
           {data?.mobileAppDetail}
@@ -56,7 +62,7 @@ const MobileAppSection = ({ data }) => {
       </div>
 
       <div
-        className="mt-[20px] md:mt-[80px] cursor-pointer flex justify-center items-center"
+        className="mt-[20px] md:mt-[40px] cursor-pointer flex justify-center items-center"
         onClick={handlePlayFullscreen}
       >
         <video
@@ -69,7 +75,7 @@ const MobileAppSection = ({ data }) => {
           preload="auto"
         >
           <source
-            src="https://ezpick.s3.us-east-1.amazonaws.com/schools/1691574748884.mp4"
+            src="https://ezpick.s3.us-east-1.amazonaws.com/schools%2F1692109795706.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.

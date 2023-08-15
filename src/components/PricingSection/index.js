@@ -7,6 +7,7 @@ const Section1 = ({
   selectedPlan,
   plans,
   setPlanDuration,
+  locales
 }) => {
   const [nameOnly, setNameOnly] = useState(true);
   const [planData, setPlanData] = useState([]);
@@ -29,18 +30,15 @@ const Section1 = ({
   return (
     <div className="pb-[120px] pt-[64px]" id="pricing-section">
       <div className="pb-[64px] px-[30px]">
-        <p
-          dir="ltr"
-          className="text-black text-center font-montserrat text-[38px] md:text-[50px] font-bold mb-[40px]"
-        >
-          Choose the plan that fits your needs.
+        <p className="text-black text-center font-montserrat text-[38px] md:text-[50px] font-bold mb-[40px]">
+          {locales?.CHOOSE_PLAN || "Choose the plan that fits your needs."}
         </p>
         <p className="text-black text-center font-montserrat text-[18px] font-normal mb-[25px]">
-          Switch your plan from monthly to yearly
+          {locales?.SWITCH_PLAN || "Switch your plan from monthly to yearly"}
         </p>
         <div className="flex items-center justify-center">
           <p className="text-black font-montserrat text-[18px] font-normal leading-tight">
-            Monthly
+            {locales?.MONTHLY || "Monthly"}
           </p>
           <label className="relative inline-flex items-center mx-3 cursor-pointer">
             <input
@@ -52,11 +50,11 @@ const Section1 = ({
             <div
               className={`w-12 h-6 bg-gray-300 rounded-full ${
                 nameOnly ? "bg-[#FF8A0F]" : ""
-              } peer peer-focus:ring-4 peer-focus:ring-[#FF8A0F] dark:bg-gray-300 peer-checked:after:translate-x-full peer-checked:after:border-[#FF8A0F] after:content-[''] after:absolute after:-top-0.5 after:-left-1 after:bg-[#FF8A0F] after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all dark:border-gray-300`}
+              } peer peer-focus:ring-4 peer-focus:ring-white dark:bg-gray-300 peer-checked:after:translate-x-full peer-checked:after:border-[#FF8A0F] after:content-[''] after:absolute after:-top-0.5 after:-left-1 after:bg-[#FF8A0F] after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all dark:border-gray-300`}
             ></div>
           </label>
           <p className="text-black font-montserrat text-[18px] font-normal leading-tight">
-            Yearly
+            {locales?.YEARLY || "Yearly"}
           </p>
         </div>
       </div>
@@ -151,7 +149,7 @@ const Section1 = ({
                       selected ? "font-normal" : "font-semibold"
                     } flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]`}
                   >
-                    Select
+                    {locales?.SELECT || "Select"}
                   </button>
                 </div>
               </div>

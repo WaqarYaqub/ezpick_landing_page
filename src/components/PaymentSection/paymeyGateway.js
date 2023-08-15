@@ -6,9 +6,18 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import { updateClient } from "@/services";
 
-function PaymentForm({ plan, client, openModal, setLoading, isLoading }) {
+import { updateClient, sendEmail } from "@/services";
+
+function PaymentForm({
+  plan,
+  client,
+  openModal,
+  setLoading,
+  isLoading,
+  openUnSuccessModal,
+  local,
+}) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -34,7 +43,10 @@ function PaymentForm({ plan, client, openModal, setLoading, isLoading }) {
     });
 
     if (error) {
+      setLoading(false);
       setError(error.message);
+      openUnSuccessModal();
+      return;
     } else {
       // Payment method created successfully. You can send the paymentMethod.id to your server.
       console.log(paymentMethod);
@@ -43,7 +55,7 @@ function PaymentForm({ plan, client, openModal, setLoading, isLoading }) {
       const amount = plan?.price; // Replace with the actual payment amount in cents
       const currency = "usd"; // Replace with the desired currency code
 
-      fetch("https://test.ezpick.co/clients/paymentIntent", {
+      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}clients/paymentIntent`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Specify the content type
@@ -53,18 +65,16 @@ function PaymentForm({ plan, client, openModal, setLoading, isLoading }) {
       })
         .then((response) => {
           if (!response.ok) {
-            setError("Failed");
-            throw new Error("Network response was not ok"); // Handle error cases
+            setLoading(false);
+            openUnSuccessModal();
+            return;
           }
           return response.json(); // Parse the JSON response
         })
         .then(async (data) => {
-          // Handle the parsed response data
-          console.log("Response data:", data);
-          console.log("payment done succesfully");
-
           if (data?.success) {
-            setError("payment done succesfully");
+            setLoading(false);
+            openModal();
             const clientData = {
               id: client?.id,
               status: 1,
@@ -72,13 +82,31 @@ function PaymentForm({ plan, client, openModal, setLoading, isLoading }) {
             };
             const response = await updateClient(clientData);
             if (response?.success) {
+              const emailData = {
+                id: client?.id,
+                email: client?.email,
+                name: client?.email,
+                password: client?.password,
+              };
+              const response = await sendEmail(emailData);
+              if (response?.success) {
+                console.log("Email sent");
+              }
               setLoading(false);
-              openModal();
+              setError("payment done succesfully");
             }
-          } else setError("Failed");
+          } else {
+            setLoading(false);
+            openUnSuccessModal();
+            setError("Failed");
+            return;
+          }
         })
         .catch((error) => {
-          console.error("Fetch error:", error);
+          setLoading(false);
+          openUnSuccessModal();
+          setError(error);
+          return;
         });
     }
   };
@@ -88,23 +116,131 @@ function PaymentForm({ plan, client, openModal, setLoading, isLoading }) {
       <div className="grid grid-cols-1 gap-4 bg-white">
         <div>
           <label className="uppercase font-montserrat text-[#2F4D33] text-[16px] md:text-[18px] font-bold">
-            Card Info
+            {local?.CARD_NUMBER || "Card Number"}
           </label>
 
-          <CardNumberElement className="w-full py-[15px] px-[24px] border-[1px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[5px]" />
+          <CardNumberElement
+            options={{
+              appearance: {
+                theme: "night",
+              },
+              showIcon: true,
+              placeholder: `${local?.PLACE_CARD_NUMBER}` || "Enter Card Number",
+              iconStyle: "solid", // or 'default'
+              style: {
+                base: {
+                  iconColor: "#FFBD1D",
+                  color: "#737373",
+                  fontWeight: "500",
+                  fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+                  fontSize: "16px",
+                  fontSmoothing: "antialiased",
+                  ":-webkit-autofill": {
+                    color: "#fce883",
+                  },
+                  "::placeholder": {
+                    color: "#737373",
+                  },
+                },
+                invalid: {
+                  iconColor: "#ff3860",
+                  color: "#ff3860",
+                },
+              },
+            }}
+            className="w-full py-[15px] px-[24px] border-[1px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[5px]"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-[50px]">
           <div>
-            <CardExpiryElement className="w-full py-[15px] px-[24px] border-[1px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[12px]" />
+            <label className="uppercase font-montserrat text-[#2F4D33] text-[16px] md:text-[18px] font-bold">
+              {local?.MM_YY || "MM / YY"}
+            </label>
+            <CardExpiryElement
+              options={{
+                placeholder: `${local?.MM_YY}` || "MM / YY",
+                style: {
+                  base: {
+                    iconColor: "#FFBD1D",
+                    color: "#737373",
+                    fontWeight: "500",
+                    fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+                    fontSize: "16px",
+                    fontSmoothing: "antialiased",
+                    ":-webkit-autofill": {
+                      color: "#fce883",
+                    },
+                    "::placeholder": {
+                      color: "#737373",
+                    },
+                  },
+                },
+              }}
+              className="w-full py-[15px] px-[24px] border-[1px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[12px]"
+            />
           </div>
 
           <div>
-            <CardCvcElement className="w-full py-[15px] px-[24px] border-[1px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[12px]" />
+            <label className="uppercase font-montserrat text-[#2F4D33] text-[16px] md:text-[18px] font-bold">
+              {local?.CVV || "CVV"}
+            </label>
+            <CardCvcElement
+              options={{
+                placeholder: `${local?.CVV}` || "CVV",
+                style: {
+                  base: {
+                    iconColor: "#FFBD1D",
+                    color: "#737373",
+                    fontWeight: "500",
+                    fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+                    fontSize: "16px",
+                    fontSmoothing: "antialiased",
+                    ":-webkit-autofill": {
+                      color: "#fce883",
+                    },
+                    "::placeholder": {
+                      color: "#737373",
+                    },
+                  },
+                },
+              }}
+              className="text-[#737373] w-full py-[15px] px-[24px] border-[1px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[12px]"
+            />
           </div>
         </div>
 
-        <div className="flex justify-center mt-[30px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-[30px]">
+          <div>
+            <label className="uppercase font-montserrat text-[#2F4D33] text-[16px] md:text-[18px] font-bold">
+              {local?.COUNTRY || "Country"}
+            </label>
+            <input
+              type="text"
+              readOnly
+              value={client?.city}
+              placeholder={`${local?.COUNTRY}` || "Country"}
+              disabled
+              className="text-[#737373] w-full py-[13px] px-[24px] border-[1px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[12px]"
+            />
+          </div>
+
+          <div>
+            <label className="uppercase font-montserrat text-[#2F4D33] text-[16px] md:text-[18px] font-bold">
+              {local?.ZIP || "ZIP"}
+            </label>
+            <input
+              type="text"
+              readOnly
+              disabled
+              value={client?.zipCode}
+              placeholder={`${local?.ZIP}` || "ZIP Code"}
+              className="text-[#737373] w-full py-[13px] px-[24px] border-[1px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[12px]"
+            />
+          </div>
+        </div>
+
+        <div className="flex justify-center">
           <button
             className={`w-[157px] h-[44.263px] lg:w-[200px] lg:h-[52px] ${
               isLoading
@@ -114,7 +250,9 @@ function PaymentForm({ plan, client, openModal, setLoading, isLoading }) {
             type="submit"
             disabled={!stripe || isLoading}
           >
-            {isLoading ? "Processing..." : "Pay Now"}
+            {isLoading
+              ? `${local?.PROCESSING}` || `Processing...`
+              : `${local?.PAY_NOW}` || `Pay Now`}
           </button>
         </div>
       </div>

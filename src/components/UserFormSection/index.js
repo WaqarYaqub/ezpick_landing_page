@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { createClient } from "@/services";
 import { RotatingLines } from "react-loader-spinner";
 
-const UserFormSection = ({ setClient, selectedPlan }) => {
+const UserFormSection = ({
+  setClient,
+  selectedPlan,
+  locales,
+  openUserAlreadyExistModal,
+}) => {
   const [formData, setFormData] = useState({
     schoolName: "",
     name: "",
@@ -30,56 +35,59 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
     setShowPassword(!showPassword);
   };
   const isFormDataValid = (formData) => {
-    return Object.values(formData).every((value) => value.trim() !== "");
+    return Object.values(formData).every((value) => value?.trim() !== "");
   };
 
   const handleSubmit = async () => {
     if (!formData.schoolName) {
       setValidation((prevData) => ({
         ...prevData,
-        schoolName: "School Name is Required",
+        schoolName:
+          `${locales?.FORM?.ERRORS?.SCHOOL}` || `School Name is Required`,
       }));
     }
     if (!formData.name) {
       setValidation((prevData) => ({
         ...prevData,
-        name: "Name is Required",
+        name: `${locales?.FORM?.ERRORS?.NAME}` || "Name is Required",
       }));
     }
     if (!formData.email) {
       setValidation((prevData) => ({
         ...prevData,
-        email: "Email is Required",
+        email: `${locales?.FORM?.ERRORS?.EMAIL}` || "Email is Required",
       }));
     }
     if (!formData.mobile) {
       setValidation((prevData) => ({
         ...prevData,
-        mobile: "Phone Number is Required",
+        mobile: `${locales?.FORM?.ERRORS?.PHONE}` || "Phone Number is Required",
       }));
     }
     if (!formData.password) {
       setValidation((prevData) => ({
         ...prevData,
-        password: "Password is Required",
+        password:
+          `${locales?.FORM?.ERRORS?.PASSWORD}` || "Password is Required",
       }));
     }
     if (!formData.address) {
       setValidation((prevData) => ({
         ...prevData,
-        address: "Address is Required",
+        address: `${locales?.FORM?.ERRORS?.ADDRESS}` || "Address is Required",
       }));
     }
     if (!formData.city) {
       setValidation((prevData) => ({
         ...prevData,
-        city: "Please Enter your City",
+        city: `${locales?.FORM?.ERRORS?.CITY}` || "Please Enter your City",
       }));
     }
     if (!formData.zipCode) {
       setValidation((prevData) => ({
         ...prevData,
-        zipCode: "Please Enter your ZIP Code",
+        zipCode:
+          `${locales?.FORM?.ERRORS?.ZIP}` || "Please Enter your ZIP Code",
       }));
       return;
     }
@@ -105,6 +113,10 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
           zipCode: "",
           planId: null,
         });
+      } else {
+        setLoading(false);
+        setClient(result?.client);
+        openUserAlreadyExistModal();
       }
     }
   };
@@ -123,12 +135,14 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
     if (!emailPattern.test(value)) {
       setValidation((prevData) => ({
         ...prevData,
-        email: "Please enter a valid email address",
+        email:
+          `${locales?.FORM?.ERRORS?.VALID_EMAIL}` ||
+          "Please enter a valid email address",
       }));
     } else {
       setValidation((prevData) => ({
         ...prevData,
-        email: "",
+        email: "ok",
       }));
     }
   };
@@ -141,12 +155,14 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
     if (!phoneNumberPattern.test(value)) {
       setValidation((prevData) => ({
         ...prevData,
-        mobile: "Please enter a valid phone number (numbers only)",
+        mobile:
+          `${locales?.FORM?.ERRORS?.VALID_PHONE}` ||
+          "Please enter a valid phone number (numbers only)",
       }));
     } else {
       setValidation((prevData) => ({
         ...prevData,
-        mobile: "",
+        mobile: "ok",
       }));
     }
   };
@@ -158,7 +174,7 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
     >
       <div className="text-center mb-[63px]">
         <p className="text-[#0D0C22] text-[30px] font-normal md:font-bold mt-[15px]">
-          Enter your details
+          {locales?.ENTER_YOUR_DETAIL || "Enter your details"}
         </p>
       </div>
 
@@ -180,12 +196,14 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
         )}
         <div>
           <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-            School Name
+            {locales?.FORM?.SCHOOL_NAME || "School Name"}
           </label>
           <input
             type="text"
             className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-            placeholder="Enter your school name"
+            placeholder={
+              locales?.FORM?.PLACE_SCHOOL_NAME || "Enter your school name"
+            }
             name="schoolName"
             value={formData.schoolName}
             onChange={handleChange}
@@ -198,12 +216,14 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-              PERSON Name
+              {locales?.FORM?.PERSON_NAME || "PERSON Name"}
             </label>
             <input
               type="text"
               className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-              placeholder="Enter your full name"
+              placeholder={
+                locales?.FORM?.PLACE_PERSON_NAME || "Enter your full name"
+              }
               name="name"
               value={formData.name}
               onChange={handleChange}
@@ -213,52 +233,70 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
             </span>
           </div>
 
-          <div>
+          <div className="relative">
             <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-              Email
+              {locales?.FORM?.EMAIL || "Email"}
             </label>
             <input
               type="email"
               className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-              placeholder="Enter your email"
+              placeholder={locales?.FORM?.PLACE_EMAIL || "Enter your email"}
               name="email"
               value={formData.email}
               onChange={handleChange}
               onBlur={validateEmail}
             />
-            <span className="text-[#B40105] text-[16px] font-normal md:font-bold mt-[5px]">
-              {validation?.email}
-            </span>
+            {validation?.email === "ok" && (
+              <span className="z-10 absolute top-[55px] ltr:right-2 rtl:left-2">
+                <img src="/icons/checked.png" />
+              </span>
+            )}
+            {validation?.email !== "ok" && (
+              <span className="text-[#B40105] text-[16px] font-normal md:font-bold mt-[5px]">
+                {validation?.email}
+              </span>
+            )}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
+          <div className="relative">
             <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-              Phone number
+              {locales?.FORM?.PHONE_NUMBER || "Phone number"}
             </label>
             <input
               type="text"
               className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-              placeholder="Enter your Phone number"
+              placeholder={
+                locales?.FORM?.PLACE_PHONE_NUMBER || "Enter your Phone number"
+              }
               name="mobile"
               value={formData.mobile}
               onChange={handleChange}
               onBlur={validatePhoneNumber}
             />
-            <span className="text-[#B40105] text-[16px] font-normal md:font-bold mt-[5px]">
-              {validation?.mobile}
-            </span>
+            {validation?.mobile === "ok" && (
+              <span className="z-10 absolute top-[55px] ltr:right-2 rtl:left-2">
+                <img src="/icons/checked.png" />
+              </span>
+            )}
+            {validation?.mobile !== "ok" && (
+              <span className="text-[#B40105] text-[16px] font-normal md:font-bold mt-[5px]">
+                {validation?.mobile}
+              </span>
+            )}
           </div>
 
           <div className="relative">
             <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-              PASSWORD
+              {locales?.FORM?.PASSWORD || "PASSWORD"}
             </label>
             <input
               type={showPassword ? "text" : "password"}
               className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-              placeholder="Enter your password"
+              placeholder={
+                locales?.FORM?.PLACE_PASSWORD || "Enter your password"
+              }
               name="password"
               value={formData.password}
               onChange={handleChange}
@@ -315,12 +353,12 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
 
         <div>
           <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-            Address
+            {locales?.FORM?.ADDRESS || "Address"}
           </label>
           <input
             type="text"
             className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-            placeholder="Enter your Address"
+            placeholder={locales?.FORM?.PLACE_ADDRESS || "Enter your Address"}
             name="address"
             value={formData.address}
             onChange={handleChange}
@@ -333,12 +371,12 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-              City
+              {locales?.FORM?.CITY || "City"}
             </label>
             <input
               type="text"
               className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-              placeholder="Enter your City"
+              placeholder={locales?.FORM?.PLACE_CITY || "Enter your City"}
               name="city"
               value={formData.city}
               onChange={handleChange}
@@ -350,12 +388,14 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
 
           <div>
             <label className="uppercase text-[#2F4D33] text-[18px] font-bold">
-              Zip code
+              {locales?.FORM?.ZIP_CODE || "Zip code"}
             </label>
             <input
               type="text"
               className="w-full py-[15px] px-[24px] border-[2px] border-[#2F4D33] rounded-lg bg-[#F5F5F5] mt-[8px]"
-              placeholder="Enter your Zip code"
+              placeholder={
+                locales?.FORM?.PLACE_ZIP_CODE || "Enter your Zip code"
+              }
               name="zipCode"
               value={formData.zipCode}
               onChange={handleChange}
@@ -376,7 +416,7 @@ const UserFormSection = ({ setClient, selectedPlan }) => {
               : "bg-gradient-to-r from-[#FFBD1D] to-[#FCA000]"
           } bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[16px] font-semibold flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]`}
         >
-          Purchase Now
+          {locales?.FORM?.PURCHASE_NOW || "Purchase Now"}
         </button>
       </div>
     </div>

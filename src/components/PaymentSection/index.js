@@ -11,12 +11,13 @@ const PaymentMethod = ({
   plans,
   openModal,
   closeModal,
+  openUnSuccessModal,
+  locales,
 }) => {
   const plan = plans?.find((item) => item?.id === selectedPlan);
   const [isLoading, setLoading] = useState(false);
-
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
-  console.log(plan, "plan");
+
   const getNextYear = () => {
     const currentDate = new Date();
 
@@ -84,13 +85,14 @@ const PaymentMethod = ({
                   <img src="/icons/ezpickLogo.svg" />
                   <div>
                     <p className="text-[20px] font-bold leading-tight font-montserrat text-[#000] mb-[20px]">
-                      EZPICK
+                      {locales?.PAYMENT_SECTION?.EZPICK || "EZPICK"}
                     </p>
                     <p className="text-[15px] font-normal leading-tight font-montserrat text-[#000] mb-[20px]">
-                      School scheduling software
+                      {locales?.PAYMENT_SECTION?.SCHOOL_SCHEDULING_SOFTWARE ||
+                        "School scheduling software"}
                     </p>
                     <p className="text-[15px] font-normal leading-tight font-montserrat text-[#000]">
-                      {`Exp: ${
+                      {`${locales?.PAYMENT_SECTION?.EXP || "Exp:"}: ${
                         plan?.durationType === "yearly"
                           ? getNextYear()
                           : getNextMonth()
@@ -101,10 +103,19 @@ const PaymentMethod = ({
                 <hr className="border border-[#B1B1B1] mb-[33px]" />
                 <div>
                   <p className="text-[20px] font-bold leading-tight font-montserrat text-[#000] mb-[10px]">
-                    {`Total: $${plan?.price}.00`}
+                    {`${locales?.PAYMENT_SECTION?.TOTAL || "Total"}: $${
+                      plan?.price
+                    }.00`}
                   </p>
                   <p className="text-[15px] font-normal leading-tight font-montserrat text-[#000]">
-                    {"Next billing cycle: 01-08-2024"}
+                    {`${
+                      locales?.PAYMENT_SECTION?.NEXT_BILLING_CYCLE ||
+                      "Next billing cycle"
+                    } ${
+                      plan?.durationType === "yearly"
+                        ? getNextYear()
+                        : getNextMonth()
+                    }`}
                   </p>
                 </div>
               </div>
@@ -126,7 +137,7 @@ const PaymentMethod = ({
               <h1
                 className={`text-center text-[24px] md:text-[30px] font-semibold leading-tight font-montserrat text-[#111019] pb-[50px]`}
               >
-                Payment Gateway
+                {locales?.PAYMENT_SECTION?.FORM?.HEADING || "Payment Gateway"}
               </h1>
               {isLoading && (
                 <div className="z-10 absolute inset-0 flex items-center justify-center">
@@ -145,7 +156,9 @@ const PaymentMethod = ({
                   client={client}
                   openModal={openModal}
                   setLoading={setLoading}
+                  openUnSuccessModal={openUnSuccessModal}
                   isLoading={isLoading}
+                  local={locales?.PAYMENT_SECTION?.FORM}
                 />
               </Elements>
             </div>

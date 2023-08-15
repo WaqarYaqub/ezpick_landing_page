@@ -4,7 +4,7 @@ import Modal from "../Modal";
 import TermAndCondition from "../Pages/TermAndCondition";
 import Link from "next/link";
 
-const Footer = () => {
+const Footer = ({ locales }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModal, setModal] = useState("");
 
@@ -25,19 +25,17 @@ const Footer = () => {
             alt="Logo"
           />
         </Link>
-        <p className="text-[#7D899C] text-center font-montserrat font-normal text-[12px]">
-          EZpick-up system is a technology-based solution that
-        </p>
-        <p className="text-[#7D899C] text-center font-montserrat font-normal text-[12px]">
-          streamlines the process of picking up students from school.
+        <p className="w-[350px] text-[#7D899C] text-center font-montserrat font-normal text-[12px]">
+          {locales?.FOOTER_SUB_HEADING ||
+            "EZpick-up system is a technology-based solution that streamlines the process of picking up students from school."}
         </p>
       </div>
       <hr className="border border-[#B1B1B1] my-[10px] mx-[30px] md:mx-[0px]" />
 
       <footer className="p-[20px] grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mx-auto max-w-screen-sm md:max-w-screen-xl pb-[16px] md:mb-[0px]">
-        <div className="order-3 md:order-1 text-center md:text-left">
+        <div className="order-3 md:order-1 text-center ltr:md:text-left rtl:md:text-right">
           <p className="text-[#586780]font-montserrat font-normal text-[12px]">
-            &copy;2023. All rights reserved
+            {locales?.ALL_RIGHT_RESERVED || "&copy;2023. All rights reserved"}
           </p>
         </div>
         <div className="order-2 flex items-center justify-center gap-[25px]  mb-[20px] md:mb-[0px]">
@@ -71,7 +69,7 @@ const Footer = () => {
             }}
             className="cursor-pointer text-[#586780]font-montserrat font-normal text-[12px]"
           >
-            Privacy Policy
+            {locales?.PRIVACY_POLICY || "Privacy Policy"}
           </p>
           <p
             onClick={() => {
@@ -80,7 +78,7 @@ const Footer = () => {
             }}
             className="cursor-pointer text-[#586780]font-montserrat font-normal text-[12px]"
           >
-            Terms & Condition
+            {locales?.TERM_CONDITION || "Terms & Condition"}
           </p>
         </div>
       </footer>

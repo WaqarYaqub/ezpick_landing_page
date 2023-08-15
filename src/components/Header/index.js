@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
-const Header = ({ setSelectedLanguage, selectedLanguage }) => {
+const Header = ({ setSelectedLanguage, selectedLanguage, locales }) => {
   return (
-    <header className="bg-white text-white py-4 px-6 flex justify-between items-center mx-auto max-w-screen-sm md:max-w-screen-xl">
+    <header id="header-section" className="bg-white text-white py-4 px-6 flex justify-between items-center mx-auto max-w-screen-sm md:max-w-screen-xl">
       <div className="flex items-center">
         <Link href={"/"}>
           <img
@@ -20,8 +20,8 @@ const Header = ({ setSelectedLanguage, selectedLanguage }) => {
           selectedLanguage={selectedLanguage}
         />
         <Link href={"https://school.ezpick.co/"} target="_blank">
-          <button className="w-[90px] h-[32px] lg:w-[146px] lg:h-[52px] bg-gradient-to-r from-[#FFBD1D] to-[#FCA000] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[16px] font-semibold flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]">
-            LogIn
+          <button className="w-[146px] h-[32px] lg:w-[146px] lg:h-[52px] bg-gradient-to-r from-[#FFBD1D] to-[#FCA000] bg-no-repeat bg-padding-box shadow-md rounded-full cursor-pointer transition duration-250 ease-in-out text-white text-[14px] lg:text-[16px] font-semibold flex items-center justify-center uppercase hover:from-[#FCA000] hover:to-[#FFBD1D]">
+            {locales?.LOGIN || "LogIn"}
           </button>
         </Link>
       </div>
@@ -35,6 +35,7 @@ function LanguageSelector({ setSelectedLanguage, selectedLanguage }) {
 
     setSelectedLanguage(newLanguage);
     localStorage.setItem("selectedLanguage", newLanguage);
+    window.location.reload()
   };
 
   return (

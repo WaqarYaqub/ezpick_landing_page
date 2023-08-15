@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const BASE_URL = "https://test.ezpick.co/";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const getPlans = async (planDuration) => {
+const getPlans = async (planDuration, selectedLanguage) => {
   try {
     // get all plans
-    const endpoint = BASE_URL + `plans?durationType=${planDuration}&lang=en`;
+    const endpoint =
+      BASE_URL + `plans?durationType=${planDuration}&lang=${selectedLanguage}`;
 
     const response = await axios.get(endpoint);
     return response.data;
@@ -37,6 +38,30 @@ const createClient = async (data) => {
   }
 };
 
+const verify = async (data) => {
+  try {
+    // get all plans
+    const endpoint = BASE_URL + `clients/verifyUser`;
+
+    const response = await axios.post(endpoint, data);
+    return response.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const sendEmail = async (data) => {
+  try {
+    // get all plans
+    const endpoint = BASE_URL + `clients/sendEmail`;
+
+    const response = await axios.post(endpoint, data);
+    return response.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 const updateClient = async (data) => {
   try {
     const endpoint = BASE_URL + `clients/update`;
@@ -48,4 +73,4 @@ const updateClient = async (data) => {
   }
 };
 
-export { getPlans, createClient, getCMS, updateClient };
+export { getPlans, createClient, getCMS, updateClient, verify, sendEmail };

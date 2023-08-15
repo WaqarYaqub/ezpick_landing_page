@@ -1,11 +1,11 @@
 import React from "react";
 
-const FeatureSection = ({ data }) => {
+const FeatureSection = ({ data, locales }) => {
   return (
     <div className="px-[30px] lg:px-[0px]  mb-[100px] md:mb-[74px]">
       <div className="text-center mx-[38px] mb-[50px]">
         <p className="text-[#0D0C22] text-[30px] font-bold mt-[15px]">
-          Special Features
+          {locales?.SPECIAL_FEATURE || "Special Features"}
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mx-auto max-w-screen-sm md:max-w-screen-xl">

@@ -1,0 +1,248 @@
+{
+  "en": {
+    "LOGIN": "LogIn",
+    "SPECIAL_FEATURE": "Special Features",
+    "CHOOSE_PLAN": "Choose the plan that fits your needs.",
+    "SWITCH_PLAN": "Switch your plan from monthly to yearly",
+    "YEARLY": "Yearly",
+    "MONTHLY": "Monthly",
+    "SELECT": "SELECT",
+    "ENTER_YOUR_DETAIL": "Enter your details",
+    "FORM": {
+      "SCHOOL_NAME": "SCHOOL NAME",
+      "PLACE_SCHOOL_NAME": "Enter school name",
+      "PERSON_NAME": "PERSON NAME",
+      "PLACE_PERSON_NAME": "Enter your full name",
+      "EMAIL": "EMAIL",
+      "PLACE_EMAIL": "Enter your email",
+      "PHONE_NUMBER": "PHONE NUMBER",
+      "PLACE_PHONE_NUMBER": "Enter you phone number",
+      "PASSWORD": "PASSWORD",
+      "PLACE_PASSWORD": "Please enter password",
+      "ADDRESS": "ADDRESS",
+      "PLACE_ADDRESS": "Enter your address",
+      "CITY": "CITY",
+      "PLACE_CITY": "Enter your city",
+      "ZIP_CODE": "ZIP CODE",
+      "PLACE_ZIP_CODE": "Enter ZIP Code",
+      "PURCHASE_NOW": "PURCHASE NOW",
+      "ERRORS": {
+        "SCHOOL": "School Name is Required",
+        "NAME": "Name is Required",
+        "EMAIL": "Email is Required",
+        "VALID_EMAIL": "Please enter a valid email address",
+        "PHONE": "Phone Number is Required",
+        "VALID_PHONE": "Please enter a valid phone number (numbers only)",
+        "PASSWORD": "Password is Required",
+        "ADDRESS": "Please enter your address",
+        "CITY": "Please Enter your City",
+        "ZIP": "Please Enter your ZIP Code"
+      }
+    },
+    "PAYMENT_SECTION": {
+      "EZPICK": "EZPICK",
+      "SCHOOL_SCHEDULING_SOFTWARE": "School scheduling software",
+      "EXP": "Expire",
+      "TOTAL": "Total",
+      "NEXT_BILLING_CYCLE": "Next billing cycle:",
+      "FORM": {
+        "HEADING": "Payment Gateway",
+        "CARD_NUMBER": "CARD NUMBER",
+        "PLACE_CARD_NUMBER": "Enter Card Number",
+        "MM_YY": "MM / YY",
+        "CVV": "CVV",
+        "COUNTRY": "COUNTRY",
+        "ZIP": "ZIP",
+        "PAY_NOW": "PAY NOW",
+        "PROCESSING": "PROCESSING..."
+      }
+    },
+    "USER_ALREADY_EXIST": {
+      "HEADING": "This email address already exists",
+      "SUB_HEADING_1": "If this is your email, please verify it",
+      "SUB_HEADING_2": "An OTP has been sent to this email",
+      "BUTTON": "SUBMIT"
+    },
+    "UN_SUCCESSFULL": {
+      "HEADING": "Purchase Unsuccessful",
+      "SUB_HEADING_1": "Your purchase was unsuccessful because of some kind of issue.",
+      "SUB_HEADING_2": "Check your credit/debit card credentials",
+      "BUTTON": "Got it!"
+    },
+    "SUCCESSFULL": {
+      "HEADING": "Purchase Successfully!",
+      "SUB_HEADING_1": "You have successfully get into the system.We have sent you an email on this",
+      "SUB_HEADING_2": "In that email you will found credentials for admin login",
+      "BUTTON": "THANKS!"
+    },
+    "MOBILE_APP_FOR": "Mobile App for Teachers & Parents",
+    "FOOTER_SUB_HEADING": "EZpick-up system is a technology-based solution that streamlines the process of picking  up students from school.",
+    "TERM_CONDITION": "Terms & Condition",
+    "PRIVACY_POLICY": "Privacy Policy",
+    "ALL_RIGHT_RESERVED": "© 2023. All rights reserved"
+  },
+  "ar": {
+    "LOGIN": "تسجيل الدخول",
+    "SPECIAL_FEATURE": "ميزات خاصة",
+    "CHOOSE_PLAN": "اختر الخطة التي تناسب احتياجاتك.",
+    "SWITCH_PLAN": "قم بتبديل خطتك من شهرية إلى سنوية",
+    "YEARLY": "سنوي",
+    "MONTHLY": "شهري",
+    "SELECT": "اختر",
+    "ENTER_YOUR_DETAIL": "أدخل تفاصيلك",
+    "FORM": {
+      "SCHOOL_NAME": "اسم المدرسة",
+      "PLACE_SCHOOL_NAME": "أدخل اسم المدرسة",
+      "PERSON_NAME": "اسم الشخص",
+      "PLACE_PERSON_NAME": "أدخل اسمك الكامل",
+      "EMAIL": "البريد الإلكتروني",
+      "PLACE_EMAIL": "أدخل عنوان بريدك الإلكتروني",
+      "PHONE_NUMBER": "رقم الهاتف",
+      "PLACE_PHONE_NUMBER": "أدخل رقم هاتفك",
+      "PASSWORD": "كلمة المرور",
+      "PLACE_PASSWORD": "الرجاء إدخال كلمة مرور",
+      "ADDRESS": "العنوان",
+      "PLACE_ADDRESS": "أدخل عنوانك",
+      "CITY": "المدينة",
+      "PLACE_CITY": "أدخل اسم مدينتك",
+      "ZIP_CODE": "الرمز البريدي",
+      "PLACE_ZIP_CODE": "أدخل الرمز البريدي",
+      "PURCHASE_NOW": "شراء الآن",
+      "ERRORS": {
+        "SCHOOL": "اسم المدرسة مطلوب",
+        "NAME": "الاسم مطلوب",
+        "EMAIL": "البريد الإلكتروني مطلوب",
+        "VALID_EMAIL": "الرجاء إدخال عنوان بريد إلكتروني صالح",
+        "PHONE": "رقم الهاتف مطلوب",
+        "VALID_PHONE": "الرجاء إدخال رقم هاتف صالح (أرقام فقط)",
+        "PASSWORD": "كلمة المرور مطلوبة",
+        "ADDRESS": "الرجاء إدخال عنوانك",
+        "CITY": "الرجاء إدخال اسم مدينتك",
+        "ZIP": "الرجاء إدخال الرمز البريدي الخاص بك"
+      }
+    },
+    "PAYMENT_SECTION": {
+      "EZPICK": "EZPICK",
+      "SCHOOL_SCHEDULING_SOFTWARE": "برنامج جدولة المدرسة",
+      "EXP": "تنتهي",
+      "TOTAL": "المجموع",
+      "NEXT_BILLING_CYCLE": "الدورة الفوترة التالية:",
+      "FORM": {
+        "HEADING": "بوابة الدفع",
+        "CARD_NUMBER": "رقم البطاقة",
+        "PLACE_CARD_NUMBER": "أدخل رقم البطاقة",
+        "MM_YY": "شهر / سنة",
+        "CVV": "CVV",
+        "COUNTRY": "البلد",
+        "ZIP": "الرمز البريدي",
+        "PAY_NOW": "ادفع الآن",
+        "PROCESSING": "جارٍ المعالجة..."
+      }
+    },
+    "USER_ALREADY_EXIST": {
+      "HEADING": "هذا البريد الإلكتروني موجود بالفعل",
+      "SUB_HEADING_1": "إذا كان هذا بريدك الإلكتروني، يرجى التحقق منه",
+      "SUB_HEADING_2": "تم إرسال رمز OTP إلى هذا البريد الإلكتروني",
+      "BUTTON": "إرسال"
+    },
+    "UN_SUCCESSFULL": {
+      "HEADING": "فشل الشراء",
+      "SUB_HEADING_1": "لم يكتمل الشراء بسبب مشكلة ما.",
+      "SUB_HEADING_2": "في هذا البريد الإلكتروني، ستجد بيانات اعتماد لتسجيل الدخول للمشرف.",
+      "BUTTON": "فهمت!"
+    },
+    "SUCCESSFULL": {
+      "HEADING": "تم الشراء بنجاح!",
+      "SUB_HEADING_1": "لقد دخلت النظام بنجاح. لقد أرسلنا لك بريدًا إلكترونيًا بهذا الخصوص.",
+      "SUB_HEADING_2": "في هذا البريد الإلكتروني، ستجد رابطًا سيقوم بتوجيهك إلى نظامنا.",
+      "BUTTON": "شكرًا!"
+    },
+    "MOBILE_APP_FOR": "تطبيق الجوال للمعلمين والآباء",
+    "FOOTER_SUB_HEADING": "نظام EZpick-up هو حلاً قائمًا على التكنولوجيا يسهل عملية استلام الطلاب من المدرسة.",
+    "TERM_CONDITION": "الشروط والأحكام",
+    "PRIVACY_POLICY": "سياسة الخصوصية",
+    "ALL_RIGHT_RESERVED": "©2023. جميع الحقوق محفوظة"
+  },
+  "fr": {
+    "LOGIN": "Connexion",
+    "SPECIAL_FEATURE": "Fonctionnalités spéciales",
+    "CHOOSE_PLAN": "Choisissez le plan qui correspond à vos besoins.",
+    "SWITCH_PLAN": "Passez votre plan de mensuel à annuel",
+    "YEARLY": "Annuel",
+    "MONTHLY": "Mensuel",
+    "SELECT": "SÉLECTIONNER",
+    "ENTER_YOUR_DETAIL": "Entrez vos coordonnées",
+    "FORM": {
+      "SCHOOL_NAME": "NOM DE L'ÉCOLE",
+      "PLACE_SCHOOL_NAME": "Entrez le nom de l'école",
+      "PERSON_NAME": "NOM DE LA PERSONNE",
+      "PLACE_PERSON_NAME": "Entrez votre nom complet",
+      "EMAIL": "E-MAIL",
+      "PLACE_EMAIL": "Entrez votre e-mail",
+      "PHONE_NUMBER": "NUMÉRO DE TÉLÉPHONE",
+      "PLACE_PHONE_NUMBER": "Entrez votre numéro de téléphone",
+      "PASSWORD": "MOT DE PASSE",
+      "PLACE_PASSWORD": "Veuillez entrer un mot de passe",
+      "ADDRESS": "ADRESSE",
+      "PLACE_ADDRESS": "Entrez votre adresse",
+      "CITY": "VILLE",
+      "PLACE_CITY": "Entrez votre ville",
+      "ZIP_CODE": "CODE POSTAL",
+      "PLACE_ZIP_CODE": "Entrez le code postal",
+      "PURCHASE_NOW": "ACHETER MAINTENANT",
+      "ERRORS": {
+        "SCHOOL": "Le nom de l'école est requis",
+        "NAME": "Le nom est requis",
+        "EMAIL": "L'adresse e-mail est requise",
+        "VALID_EMAIL": "Veuillez entrer une adresse e-mail valide",
+        "PHONE": "Le numéro de téléphone est requis",
+        "VALID_PHONE": "Veuillez entrer un numéro de téléphone valide (chiffres uniquement)",
+        "PASSWORD": "Le mot de passe est requis",
+        "ADDRESS": "Veuillez entrer votre adresse",
+        "CITY": "Veuillez entrer votre ville",
+        "ZIP": "Veuillez entrer votre code postal"
+      }
+    },
+    "PAYMENT_SECTION": {
+      "EZPICK": "EZPICK",
+      "SCHOOL_SCHEDULING_SOFTWARE": "Logiciel de planification scolaire",
+      "EXP": "Expiration",
+      "TOTAL": "Total",
+      "NEXT_BILLING_CYCLE": "Prochain cycle de facturation :",
+      "FORM": {
+        "HEADING": "Passerelle de paiement",
+        "CARD_NUMBER": "NUMÉRO DE CARTE",
+        "PLACE_CARD_NUMBER": "Entrez le numéro de carte",
+        "MM_YY": "MM / AA",
+        "CVV": "CVV",
+        "COUNTRY": "PAYS",
+        "ZIP": "CODE POSTAL",
+        "PAY_NOW": "PAYER MAINTENANT",
+        "PROCESSING": "TRAITEMENT EN COURS..."
+      }
+    },
+    "USER_ALREADY_EXIST": {
+      "HEADING": "Cette adresse e-mail existe déjà",
+      "SUB_HEADING_1": "Si c'est votre adresse e-mail, veuillez la vérifier",
+      "SUB_HEADING_2": "Un OTP a été envoyé à cette adresse e-mail",
+      "BUTTON": "SOUMETTRE"
+    },
+    "UN_SUCCESSFULL": {
+      "HEADING": "Achat non réussi",
+      "SUB_HEADING_1": "Votre achat a échoué en raison d'un problème quelconque.",
+      "SUB_HEADING_2": "Vérifiez les informations de votre carte de crédit/débit",
+      "BUTTON": "C'est compris !"
+    },
+    "SUCCESSFULL": {
+      "HEADING": "Achat réussi !",
+      "SUB_HEADING_1": "Vous êtes entré dans le système avec succès. Nous vous avons envoyé un e-mail à ce sujet.",
+      "SUB_HEADING_2": "Dans cet e-mail, vous trouverez les identifiants de connexion pour l'administrateur.",
+      "BUTTON": "MERCI !"
+    },
+    "MOBILE_APP_FOR": "Application mobile pour les enseignants et les parents",
+    "FOOTER_SUB_HEADING": "Le système EZpick-up est une solution basée sur la technologie qui simplifie le processus de prise en charge des élèves à l'école.",
+    "TERM_CONDITION": "Conditions générales",
+    "PRIVACY_POLICY": "Politique de confidentialité",
+    "ALL_RIGHT_RESERVED": "© 2023. Tous droits réservés"
+  }
+}
