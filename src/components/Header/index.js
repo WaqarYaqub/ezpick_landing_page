@@ -3,7 +3,10 @@ import React from "react";
 
 const Header = ({ setSelectedLanguage, selectedLanguage, locales }) => {
   return (
-    <header id="header-section" className="bg-white text-white py-4 px-6 flex justify-between items-center mx-auto max-w-screen-sm md:max-w-screen-xl">
+    <header
+      id="header-section"
+      className="bg-white text-white py-4 px-6 flex justify-between items-center mx-auto max-w-screen-sm md:max-w-screen-xl"
+    >
       <div className="flex items-center">
         <Link href={"/"}>
           <img
@@ -35,7 +38,7 @@ function LanguageSelector({ setSelectedLanguage, selectedLanguage }) {
 
     setSelectedLanguage(newLanguage);
     localStorage.setItem("selectedLanguage", newLanguage);
-    window.location.reload()
+    // window.location.reload()
   };
 
   return (

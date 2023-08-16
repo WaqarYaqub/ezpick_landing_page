@@ -152,7 +152,7 @@ const Main = () => {
         locales={locales}
         data={cmsData?.mobileAppSection}
       />
-      <Footer locales={locales} />
+      <Footer locales={locales} lang={selectedLanguage} />
       <Modal isModalOpen={isModalOpen}>
         <SuccessPage
           closeModal={closeModal}

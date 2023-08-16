@@ -4,7 +4,7 @@ import Modal from "../Modal";
 import TermAndCondition from "../Pages/TermAndCondition";
 import Link from "next/link";
 
-const Footer = ({ locales }) => {
+const Footer = ({ locales, lang }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModal, setModal] = useState("");
 
@@ -85,9 +85,9 @@ const Footer = ({ locales }) => {
       <Modal isModalOpen={isModalOpen}>
         {isModal ? (
           isModal === "privacy-policy" ? (
-            <PrivacyPage closeModal={closeModal} />
+            <PrivacyPage lang={lang} closeModal={closeModal} />
           ) : (
-            <TermAndCondition closeModal={closeModal} />
+            <TermAndCondition lang={lang} closeModal={closeModal} />
           )
         ) : null}
       </Modal>

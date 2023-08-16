@@ -1,0 +1,80 @@
+{
+    "en": {
+        "PrivacyPolicy": "Privacy Policy for Student Pick-Up System",
+        "EffectiveDate": "Effective Date: 30th May 2023",
+        "PolicyDescription": "Policy applies to our Student Pickup System and outlines how we collect, use, and protect your personal information, including your photo and location data.",
+        "InformationCollect": "Information We Collect",
+        "PersonalIdentification": "a. Personal Identification Information: We may collect personal identification information such as name, email address, phone number, and student identification number.",
+        "PhotoVerification": "b. Photo: To verify the identity of the student and the authorized pickup individual, we may collect photos of both parties.",
+        "LocationData": "c. Location Data: We may collect real-time information about the location of your device to facilitate efficient pickup scheduling and routing.",
+        "UseOfInformation": "Use of Information",
+        "UseOfInfoList": [
+            "a. To provide and maintain our Student Pickup System.",
+            "b. To facilitate the efficient pickup of students.",
+            "c. To ensure that the students are picked up by the authorized individuals only.",
+            "d. To improve our services by understanding how our system is used."
+        ],
+        "InfoSharingDisclosure": "Information Sharing and Disclosure",
+        "SharingDisclosureDesc": "We do not sell your personal information to third parties. We may share your information with third parties that help us operate our Student Pickup System, as long as those parties agree to keep this information confidential. We may also release your information when we believe its release is appropriate to comply with the law.",
+        "ProtectionOfInfo": "Protection of Information",
+        "ProtectionOfInfoDesc": "We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure. Therefore, while we strive to protect your personal information, we cannot guarantee its absolute security.",
+        "UserConsent": "User Consent",
+        "UserConsentDesc": "By using our Student Pickup System, you consent to this Privacy Policy.",
+        "PolicyChanges": "Privacy Policy Changes",
+        "PolicyChangesDesc": "We reserve the right to modify this Privacy Policy at any time. If we make changes to this policy, we will notify you by updating the 'Effective Date' at the top of this page.",
+        "ContactUs": "If you have any questions or concerns about our Privacy Policy, please contact us at ask@ezpick.co",
+        "CloseButton": "Close"
+    },
+    "ar": {
+        "PrivacyPolicy": "سياسة الخصوصية لنظام استلام الطلاب",
+        "EffectiveDate": "تاريخ السريان: 30 مايو 2023",
+        "PolicyDescription": "تنطبق هذه السياسة على نظام استلام الطلاب لدينا وتوضح كيفية جمعنا واستخدامنا وحماية معلوماتك الشخصية، بما في ذلك صورتك الشخصية وبيانات موقعك.",
+        "InformationCollect": "المعلومات التي نجمعها",
+        "PersonalIdentification": "أ. معلومات التعرّف الشخصي: قد نجمع معلومات التعرّف الشخصي مثل الاسم وعنوان البريد الإلكتروني ورقم الهاتف ورقم تعريف الطالب.",
+        "PhotoVerification": "ب. صورة: للتحقق من هوية الطالب والشخص المخول باستلامه، قد نقوم بجمع صور للطرفين.",
+        "LocationData": "ج. بيانات الموقع: قد نجمع معلومات في الوقت الفعلي حول موقع جهازك لتسهيل جدولة وتوجيه استلام الطلاب بكفاءة.",
+        "UseOfInformation": "استخدام المعلومات",
+        "UseOfInfoList": [
+            "أ. لتوفير والحفاظ على نظام استلام الطلاب لدينا.",
+            "ب. لتيسير استلام الطلاب بكفاءة.",
+            "ج. للتأكد من أن الطلاب يتم استلامهم من قبل الأفراد المخولين فقط.",
+            "د. لتحسين خدماتنا من خلال فهم كيفية استخدام نظامنا."
+        ],
+        "InfoSharingDisclosure": "مشاركة المعلومات والكشف عنها",
+        "SharingDisclosureDesc": "نحن لا نبيع معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك مع أطراف ثالثة تساعدنا في تشغيل نظام استلام الطلاب لدينا، طالما وافقت هذه الأطراف على الحفاظ على هذه المعلومات سرية. قد نقوم أيضًا بإصدار معلوماتك عندما نعتقد أن الإفصاح عنها مناسب للامتثال للقانون.",
+        "ProtectionOfInfo": "حماية المعلومات",
+        "ProtectionOfInfoDesc": "نقوم بتنفيذ مجموعة متنوعة من التدابير الأمنية للحفاظ على سلامة معلوماتك الشخصية. ومع ذلك، لا يوجد أي طريقة للنقل عبر الإنترنت أو طريقة للتخزين الإلكتروني تكون آمنة بنسبة 100%. لذلك، وبينما نسعى لحماية معلوماتك الشخصية، لا يمكننا ضمان أمانها المطلق.",
+        "UserConsent": "موافقة المستخدم",
+        "UserConsentDesc": "باستخدام نظام استلام الطلاب لدينا، فإنك توافق على سياسة الخصوصية هذه.",
+        "PolicyChanges": "تغييرات سياسة الخصوصية",
+        "PolicyChangesDesc": "نحتفظ بالحق في تعديل سياسة الخصوصية هذه في أي وقت. إذا أجرينا تغييرات على هذه السياسة، سنقوم بإعلامك من خلال تحديث تاريخ السريان في أعلى هذه الصفحة.",
+        "ContactUs": "إذا كان لديك أي أسئلة أو مخاوف حول سياسة الخصوصية لدينا، يُرجى التواصل معنا على ask@ezpick.co",
+        "CloseButton": "إغلاق"
+    },
+    "fr": {
+        "PrivacyPolicy": "Politique de confidentialité pour le système de ramassage des élèves",
+        "EffectiveDate": "Date d'entrée en vigueur : 30 mai 2023",
+        "PolicyDescription": "La politique s'applique à notre système de ramassage des élèves et décrit comment nous recueillons, utilisons et protégeons vos informations personnelles, y compris vos photos et données de localisation.",
+        "InformationCollect": "Informations que nous recueillons",
+        "PersonalIdentification": "a. Informations d'identification personnelles : Nous pouvons recueillir des informations d'identification personnelles telles que le nom, l'adresse e-mail, le numéro de téléphone et le numéro d'identification de l'élève.",
+        "PhotoVerification": "b. Photo : Pour vérifier l'identité de l'élève et de la personne autorisée à le récupérer, nous pouvons recueillir des photos des deux parties.",
+        "LocationData": "c. Données de localisation : Nous pouvons recueillir des informations en temps réel sur l'emplacement de votre appareil pour faciliter la planification et l'acheminement efficaces du ramassage.",
+        "UseOfInformation": "Utilisation des informations",
+        "UseOfInfoList": [
+            "a. Fournir et maintenir notre système de ramassage des élèves.",
+            "b. Faciliter le ramassage efficace des élèves.",
+            "c. S'assurer que les élèves sont récupérés uniquement par les personnes autorisées.",
+            "d. Améliorer nos services en comprenant comment notre système est utilisé."
+        ],
+        "InfoSharingDisclosure": "Partage et divulgation des informations",
+        "SharingDisclosureDesc": "Nous ne vendons pas vos informations personnelles à des tiers. Nous pouvons partager vos informations avec des tiers qui nous aident à exploiter notre système de ramassage des élèves, tant que ces parties acceptent de garder ces informations confidentielles. Nous pouvons également divulguer vos informations lorsque nous estimons que leur divulgation est appropriée pour se conformer à la loi.",
+        "ProtectionOfInfo": "Protection des informations",
+        "ProtectionOfInfoDesc": "Nous mettons en place diverses mesures de sécurité pour garantir la sécurité de vos informations personnelles. Cependant, aucune méthode de transmission sur Internet ou de stockage électronique n'est totalement sécurisée à 100%. Par conséquent, bien que nous nous efforcions de protéger vos informations personnelles, nous ne pouvons pas garantir leur sécurité absolue.",
+        "UserConsent": "Consentement de l'utilisateur",
+        "UserConsentDesc": "En utilisant notre système de ramassage des élèves, vous consentez à cette politique de confidentialité.",
+        "PolicyChanges": "Modifications de la politique de confidentialité",
+        "PolicyChangesDesc": "Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Si nous apportons des modifications à cette politique, nous vous informerons en mettant à jour la « Date d'entrée en vigueur » en haut de cette page.",
+        "ContactUs": "Si vous avez des questions ou des préoccupations concernant notre politique de confidentialité, veuillez nous contacter à l'adresse ask@ezpick.co",
+        "CloseButton": "Fermer"
+    }
+}
